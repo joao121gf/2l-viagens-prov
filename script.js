@@ -27,4 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
   showElement(siteLink, 3000); // Mostrar "www.2lviagens.com.br" após 3s
   showElement(logos, 4500); // Mostrar logos após 4.5s
   showElement(info, 6000); // Mostrar informações após 6s
+
+  function playAudio() {
+    const audio = document.getElementById("background-audio");
+    audio.play().catch((error) => {
+      console.error("Erro ao tentar reproduzir o áudio:", error);
+    });
+  }
+
+  // Tentar reproduzir o áudio ao carregar a página
+  document.addEventListener("DOMContentLoaded", playAudio);
+
+  // Adiciona um evento de clique ao corpo da página para tentar reproduzir o áudio
+  document.body.addEventListener("click", playAudio);
 });
