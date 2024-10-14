@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "DoubleBubble";
+  src: url("fonts/frankfurter-highlight-std.otf") format("opentype");
+}
+header {
+  padding-top: 64px;
+}
+body,
+html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+.header h1 {
+  font-size: 7em;
+  /* font-weight: bold; */
+  font-weight: 500;
+  color: #f7b02b;
+  font-family: "DoubleBubble";
+  font-weight: 100;
+}
+
+.container {
+  background-image: url("fonts/2.jpg"); /* Adicione a sua imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+  color: #fff;
+}
+
+.header h1,
+.header h2,
+.header a {
+  background: linear-gradient(to right, #fff300, #fde000, #fff703);
+  /* Degradê do marrom ao amarelo */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.header h2 {
+  font-size: 2.2em;
+  font-weight: bold;
+  color: #f7b02b;
+  margin: 20px 0;
+}
+.ch2 {
+  font-size: 2em !important ;
+}
+.ch3 {
+  font-size: 2em !important;
+}
+.logos {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cad {
+  width: 17% !important;
+  height: 69px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header a {
+  color: #f7b02b;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.logos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.logos img {
+  width: 285px;
+  height: auto;
+}
+.cie img {
+  width: 300px;
+}
+.info p {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.footer .circle {
+  background-color: #dd1818;
+  border-radius: 50%;
+  padding: 50px;
+  border: 10px solid #ffcc00;
+  display: inline-block;
+  text-align: center;
+}
+
+.footer .circle p {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .laco {
+    padding-top: 0px !important;
+  }
+  header {
+    padding-top: 64px !important;
+  }
+  .container {
+    background-image: url("fonts/2.jpg"); /* Adicione a sua imagem de fundo */
+    background-size: cover;
+    background-position: 66% 20%; /* Posiciona a imagem ligeiramente à esquerda e quase no fundo */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    height: 100vh;
+    color: #fff;
+  }
+  .laco {
+    position: relative;
+    left: 91px;
+    top: -36px;
+  }
+  .logos {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    margin: 30px 0;
+  }
+  .cad {
+    width: 50% !important;
+    height: 54px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header h1 {
+    font-size: 4em;
+  }
+  .ch3 {
+    font-size: 1.7em !important;
+    padding-top: 29px;
+  }
+
+  .header h2 {
+    font-size: 1.5em;
+  }
+
+  .logos img {
+    width: 139px;
+  }
+
+  .footer .circle {
+    padding: 30px;
+    border-width: 5px;
+  }
+
+  .footer .circle p {
+    font-size: 1em;
+  }
+}
+/* Define a animação de pulsação */
+@keyframes pulsar {
+  0% {
+    transform: scale(1); /* Tamanho original */
+  }
+  50% {
+    transform: scale(1.1); /* Aumenta para 110% */
+  }
+  100% {
+    transform: scale(1); /* Volta ao tamanho original */
+  }
+}
+
+/* Aplica a animação na imagem com suavidade */
+.laco {
+  animation: pulsar 2s infinite ease-in-out; /* Duração de 2 segundos, repetindo infinitamente */
+  transition: transform 0.2s ease; /* Suaviza a transição */
+}
+.cs {
+  animation: slideIn 1.5s ease-out forwards;
+}
+
+.ch2 {
+  animation: slideIn 2.5s ease-out forwards;
+  animation-delay: 1.5s; /* Espera até que "ATENÇÃO!!" esteja completamente visível */
+}
+
+.ch3 {
+  animation: slideIn 3.5s ease-out forwards;
+  animation-delay: 3s; /* Espera até que "NOSSO SITE ESTÁ CHEGANDO!!!" esteja visível */
+}
+
+.logos img {
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 4s; /* Fade in após as três mensagens aparecerem */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(-50px); /* Move para cima */
+  }
+  to {
+    opacity: 1; /* Fica visível */
+    transform: translateY(0); /* Fica na posição normal */
+  }
+}
+
+/* Animação de fade-in para as imagens */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Começa invisível */
+  }
+  to {
+    opacity: 1; /* Fica visível */
+  }
+}
+
+.active {
+  opacity: 1; /* Quando a classe active é adicionada */
+}
+.info {
+  opacity: 0; /* Inicialmente invisível */
+  transition: opacity 1s ease; /* Transição suave para a opacidade */
+}
+.laco {
+  padding-top: 20px;
+}
