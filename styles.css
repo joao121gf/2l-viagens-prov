@@ -2,19 +2,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
 }
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 
-@font-face {
-  font-family: "DoubleBubble";
-  src: url("fonts/frankfurter-highlight-std.otf") format("opentype");
-}
 header {
   padding-top: 64px;
 }
 body,
 html {
   height: 100%;
-  font-family: Arial, sans-serif;
   overflow: hidden;
 }
 .header h1 {
@@ -22,12 +20,19 @@ html {
   /* font-weight: bold; */
   font-weight: 500;
   color: #f7b02b;
-  font-family: "DoubleBubble";
   font-weight: 100;
+  font-family: "Nunito", sans-serif;
 }
+.ch3 {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-weight: 700 !important;
 
+  font-weight: 800 !important;
+  transition: opacity 1s;
+  text-transform: uppercase;
+}
 .container {
-  background-image: url("fonts/2.jpg"); /* Adicione a sua imagem de fundo */
+  background-image: url("fonts/canions-no-brasil-canion-da-fortaleza.jpg"); /* Adicione a sua imagem de fundo */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -98,7 +103,7 @@ html {
 }
 .info p {
   font-size: 1.2em;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .footer .circle {
@@ -127,6 +132,21 @@ html {
   cursor: pointer; /* Para indicar que é clicável */
 }
 @media only screen and (max-width: 768px) {
+  .ch3 {
+    opacity: 1;
+    transition: opacity 1s;
+    color: black !important;
+    background: none;
+    -webkit-text-fill-color: black !important;
+  }
+  .cs,
+  .ch2,
+  .ch3 {
+    font-weight: 900 !important;
+  }
+  .cie img {
+    width: 150px;
+  }
   .laco {
     padding-top: 0px !important;
   }
@@ -134,9 +154,9 @@ html {
     padding-top: 64px !important;
   }
   .container {
-    background-image: url("fonts/2.jpg"); /* Adicione a sua imagem de fundo */
+    background-image: url("fonts/canions-no-brasil-canion-da-fortaleza.jpg"); /* Adicione a sua imagem de fundo */
     background-size: cover;
-    background-position: 66% 20%; /* Posiciona a imagem ligeiramente à esquerda e quase no fundo */
+    background-position: 93% 20%; /* Posiciona a imagem ligeiramente à esquerda e quase no fundo */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -148,8 +168,7 @@ html {
   }
   .laco {
     position: relative;
-    left: 91px;
-    top: 26px;
+    top: -83px;
   }
   .logos {
     display: flex;
@@ -157,18 +176,37 @@ html {
     gap: 0px;
     margin: 30px 0;
   }
+  .info {
+    text-align: right;
+    opacity: 1;
+    transition: opacity 1s;
+    font-size: 0.6em;
+    padding-left: 0px;
+    /* padding-bottom: 27px; */
+    position: relative;
+    bottom: 79px;
+    text-align: center;
+  }
   .cad {
-    width: 50% !important;
-    height: 54px !important;
+    width: 41% !important;
+    height: 34px !important;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
+  }
+  .logos {
+    display: block !important;
   }
   .header h1 {
-    font-size: 4em;
+    font-size: 2em;
+  }
+  .ch2 {
+    font-size: 1em !important;
   }
   .ch3 {
-    font-size: 1.7em !important;
+    font-size: 1em !important;
+
     padding-top: 29px;
   }
 
@@ -177,7 +215,7 @@ html {
   }
 
   .logos img {
-    width: 139px;
+    width: 120px;
   }
 
   .footer .circle {
@@ -256,4 +294,124 @@ html {
 }
 .laco {
   padding-top: 20px;
+}
+
+/* Spinner para a tela de carregamento */
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ocultar o conteúdo principal no início */
+#main-content {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.info {
+  opacity: 0; /* Inicialmente invisível */
+  transition: opacity 1s ease; /* Transição suave para a opacidade */
+}
+
+/* Adicione uma classe para ativar a animação */
+.active {
+  opacity: 1; /* Quando a classe active é adicionada */
+}
+
+/* Animações de entrada */
+.ch2,
+.ch3,
+.logos img {
+  opacity: 0; /* Começam invisíveis */
+  animation-fill-mode: forwards; /* Mantém o estado final da animação */
+}
+
+.ch2 {
+  animation: slideIn 2.5s ease-out forwards;
+  animation-delay: 1.5s; /* Espera até que o elemento anterior esteja visível */
+}
+
+.ch3 {
+  animation: slideIn 3.5s ease-out forwards;
+  animation-delay: 3s; /* Espera até que o elemento anterior esteja visível */
+}
+
+.logos img {
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 4s; /* Fade in após as animações anteriores */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(-50px); /* Move para cima */
+  }
+  to {
+    opacity: 1; /* Fica visível */
+    transform: translateY(0); /* Fica na posição normal */
+  }
+}
+
+/* Animação de fade-in para as imagens */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Começa invisível */
+  }
+  to {
+    opacity: 1; /* Fica visível */
+  }
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff; /* Cor de fundo do preloader */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Mantém o preloader acima do conteúdo */
+}
+
+.spinner {
+  border: 8px solid #f3f3f3; /* Cor do fundo da bolinha */
+  border-top: 8px solid #3498db; /* Cor da parte superior da bolinha */
+  border-radius: 50%;
+  width: 50px; /* Tamanho da bolinha */
+  height: 50px; /* Tamanho da bolinha */
+  animation: spin 1s linear infinite; /* Animação de giro */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.content {
+  display: none; /* Esconde o conteúdo até que o preloader desapareça */
+  text-align: center;
+}
+.logos {
+  display: flex;
+}
+.cad {
+  margin: 0 auto;
 }

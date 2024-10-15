@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
   // Selecionar os elementos
   const attention = document.querySelector(".cs");
   const siteComing = document.querySelector(".ch2");
@@ -21,12 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }, delay);
   }
 
-  // Começar a animação
-  showElement(attention, 0); // Mostrar "ATENÇÃO!!"
-  showElement(siteComing, 1500); // Mostrar "NOSSO SITE ESTÁ CHEGANDO!!!" após 1.5s
-  showElement(siteLink, 3000); // Mostrar "www.2lviagens.com.br" após 3s
-  showElement(logos, 4500); // Mostrar logos após 4.5s
-  showElement(info, 6000); // Mostrar informações após 6s
+  // Aguardar 1 segundo após o carregamento da imagem de fundo
+  const animationDelay = 1000; // 1 segundo de atraso
+
+  // Começar a animação após o atraso
+  setTimeout(() => {
+    showElement(attention, 0); // Mostrar "ATENÇÃO!!"
+    showElement(siteComing, 1500); // Mostrar "NOSSO SITE ESTÁ CHEGANDO!!!" após 1.5s
+    showElement(siteLink, 3000); // Mostrar "www.2lviagens.com.br" após 3s
+    showElement(logos, 4500); // Mostrar logos após 4.5s
+    showElement(info, 6000); // Mostrar informações após 6s
+  }, animationDelay);
 
   function playAudio() {
     const audio = document.getElementById("background-audio");
@@ -36,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Tentar reproduzir o áudio ao carregar a página
-  document.addEventListener("DOMContentLoaded", playAudio);
+  playAudio();
 
   // Adiciona um evento de clique ao corpo da página para tentar reproduzir o áudio
   document.body.addEventListener("click", playAudio);
